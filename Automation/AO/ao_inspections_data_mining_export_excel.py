@@ -4,8 +4,8 @@ import xlsxwriter
 def inspection_data_mining_ao():
     """This function generates a excel file"""
 
-inspection_data_mining_ao_csv = 'C:/Users/felsique/Desktop/Safety Board/Input/Arquivos AO/Inspections Data Mining AO.csv'
-zones_csv = 'C:/Users/felsique/Desktop/Safety Board/Input/Arquivos AO/Zones.csv'
+inspection_data_mining_ao_csv = 'Input/Arquivos AO/Inspections Data Mining AO.csv'
+zones_csv = 'Input/Arquivos AO/Zones.csv'
 
 #Work on "Zones.csv":
 with open(zones_csv) as f:
@@ -41,6 +41,7 @@ with open(inspection_data_mining_ao_csv) as f:
 # print(list_registers)
 # print(header_row)
 
+# Creates a list of assignee total actions, sets zones for each one, and generate a percentage of nonconformities
 list_assignee_total_actions = []
 
 for register in list_registers:
@@ -58,7 +59,7 @@ list_assignee_total_actions = sorted(list_assignee_total_actions, key = lambda i
 #     print(item)
 
 # Start xlsxwriter library and export all previous data generated on this file to a excel
-workbook = xlsxwriter.Workbook('C:/Users/felsique/Desktop/Safety Board/Output/safety_board_ao_inspection_data_mining.xlsx')
+workbook = xlsxwriter.Workbook('Output/Inspections Data Mining AO Analytics.xlsx')
 
 worksheet01 = workbook.add_worksheet('Assignes, zones and actions')
 

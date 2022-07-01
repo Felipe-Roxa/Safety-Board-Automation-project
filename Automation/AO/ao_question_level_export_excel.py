@@ -2,14 +2,14 @@ import csv
 import xlsxwriter
 from encodings import utf_8
 
-def question_level_fsi():
+def question_level_ao():
     """This function generates a excel file"""
 
-    question_level_fsi_csv = 'C:/Users/felsique/Desktop/Safety Board/Input/Arquivos FSI/Question level FSI.csv'
-    questions_categories_fsi_csv = 'C:/Users/felsique/Desktop/Safety Board/Input/Arquivos FSI/Questions categories FSI.csv'
+    question_level_ao_csv = 'Input/Arquivos AO/Question level AO.csv'
+    questions_categories_ao_csv = 'Input/Arquivos AO/Questions categories AO.csv'
 
-    # Work on "Questions categories FSI.csv":
-    with open(questions_categories_fsi_csv) as f:
+    # Work on "Questions categories AO.csv":
+    with open(questions_categories_ao_csv) as f:
         # print(f)
         reader = csv.reader(f, delimiter = ';')
         header_row = next(reader)
@@ -27,8 +27,8 @@ def question_level_fsi():
     #     print(f"{item}")
     #     print(f"{item[0]} AND {item[1]}")
 
-    # Work on question_level_fsi_csv
-    with open(question_level_fsi_csv, encoding='utf-16-le') as f:
+    # Work on question_level_ao_csv
+    with open(question_level_ao_csv, encoding='utf-16-le') as f:
         reader = csv.reader((line.replace('\0', '') for line in f), delimiter='\t')
         header_row = next(reader)
 
@@ -49,7 +49,7 @@ def question_level_fsi():
         list_questions.append(register[5])
 
     set_question = set(list_questions)
-    # for item in list_occurance_question:
+    # for item in set_question:
     #     print(f"{item}")
     # print('')
 
@@ -79,7 +79,7 @@ def question_level_fsi():
                 count_and_category_ocurance_question['category'] = question_category[0]
             else:
                 continue
-        
+
     list_count_and_category_ocurance_question = sorted(list_count_and_category_ocurance_question, key = lambda item: item['category'], reverse = True)
     # for item in list_count_and_category_ocurance_question:
     #     print(f"{item}")
@@ -136,14 +136,14 @@ def question_level_fsi():
     # for item in set_actions:
     #     print(item)
 
-    # # Lenght comparsion between a list and a set of actions (last one: 83 x 71)
+    # # Lenght comparsion between a list and a set of actions (last one: 33 x 30)
     # set_actions = set(list_actions)
     # print(set_actions)
     # list2_actions = set_actions
     # print(len(list2_actions))
 
     # Start xlsxwriter library and export all previous data generated on this file to a excel
-    workbook = xlsxwriter.Workbook('C:/Users/felsique/Desktop/Safety Board/Output/safety_board_fsi_question_level.xlsx')
+    workbook = xlsxwriter.Workbook('Output/Question level AO Analytics.xlsx')
 
     worksheet01 = workbook.add_worksheet('Questions count and category')
 

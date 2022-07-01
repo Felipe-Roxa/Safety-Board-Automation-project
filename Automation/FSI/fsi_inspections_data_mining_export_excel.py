@@ -4,7 +4,7 @@ import xlsxwriter
 def inspection_data_mining_fsi():
     """This function generates a excel file"""
 
-    inspection_data_mining_fsi_csv = 'C:/Users/felsique/Desktop/Safety Board/Input/Arquivos FSI/Inspections Data Mining FSI.csv'
+    inspection_data_mining_fsi_csv = 'Input/Arquivos FSI/Inspections Data Mining FSI.csv'
 
     #Work on "Inspections Data Mining FSI.csv"
     with open(inspection_data_mining_fsi_csv) as f:
@@ -89,7 +89,7 @@ def inspection_data_mining_fsi():
     #     print(f"{item}")
 
     # Start xlsxwriter library and export all previous data generated on this file to a excel
-    workbook = xlsxwriter.Workbook('C:/Users/felsique/Desktop/Safety Board/Output/safety_board_fsi_inspections_data_mining.xlsx')
+    workbook = xlsxwriter.Workbook('Output/Inspections Data Mining FSI Analytics.xlsx')
 
     worksheet01 = workbook.add_worksheet('Assignee count')
     row = 1
